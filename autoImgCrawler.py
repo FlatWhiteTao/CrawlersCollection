@@ -15,7 +15,8 @@ if not os.path.isdir(new_path):
     os.mkdir(new_path)
 
 url = "http://www.popzitizh.com/yw/"
-input = 'Gallery.F'
+input = raw_input("please input the word you want to convert:")
+#input = 'Gallery.F'
 
 def singlePost(fonts):
     
