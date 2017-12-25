@@ -15,10 +15,15 @@ if not os.path.isdir(new_path):
     os.mkdir(new_path)
 
 url = "http://www.popzitizh.com/yw/"
+input = 'Gallery.F'
 
 def singlePost(fonts):
+    
+    uniqueOutPath = os.path.join(new_path,input)
+    if not os.path.isdir(uniqueOutPath):
+        os.mkdir(uniqueOutPath)
 
-    payload = {'word': 'Gallery.F', 'fonts':fonts,'sizes':'40','fontcolor':'#000000','colors':'#FFFFFF'}
+    payload = {'word': input, 'fonts':fonts,'sizes':'40','fontcolor':'#000000','colors':'#FFFFFF'}
     response = requests.post(url, data=payload)
     content = response.content
     #print(response.text)
@@ -35,7 +40,7 @@ def singlePost(fonts):
         print(flink)
 
         content2 = urllib2.urlopen(flink).read()
-        with open(u'artEnglish'+'/'+flink[-11:],'wb') as code:
+        with open(u'artEnglish'+'/'+input+'/'+flink[-11:],'wb') as code:
             code.write(content2)
 
 fontsList = []
